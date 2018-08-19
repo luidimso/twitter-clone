@@ -11,7 +11,7 @@
 
   <ul>
     <% current_user.feed.each do |tweet| %>
-      <li><%= tweet.content %></li>
+      <li><%= link_to tweet.user.email, user_path(tweet.user) %> - <%= tweet.content %></li>
     <% end %>
   </ul>
 

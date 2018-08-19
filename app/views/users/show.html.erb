@@ -13,7 +13,7 @@
 <% else %>
   <ul>
     <% @user.tweets.each do |tweet| %>
-      <li><%= tweet.user.email %> - <%= tweet.content %></li>
+      <li><%= tweet.content %></li>
     <% end %>
   </ul>
 <% end %>
