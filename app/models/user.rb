@@ -9,4 +9,16 @@ class User < ApplicationRecord
   has_many :passive_relationships, class_name: "Relationship", foreign_key: "followed_id", dependent: :destroy
   has_many :followeds, through: :active_relationships, source: :followed
   has_many :followers, through: :passive_relationships,source: :follower
+
+  def following?(other_user)
+    followeds.include? other_user
+  end
+
+  def follow(other_user)
+    followeds << other_user
+  end
+
+  def unfollow(other_user)
+    followeds.destroy(other_user)
+  end
 end
