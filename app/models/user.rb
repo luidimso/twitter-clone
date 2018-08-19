@@ -21,4 +21,9 @@ class User < ApplicationRecord
   def unfollow(other_user)
     followeds.destroy(other_user)
   end
+
+  def feed
+    followeds.pluck(:id) << self.id
+    Tweet.where(user_id: followeds.pluck(:id)).order(created_at: :desc)
+  end
 end

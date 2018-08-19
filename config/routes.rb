@@ -6,5 +6,5 @@ Rails.application.routes.draw do
 
   resources :tweets, only: :create
   resources :users, only: [:index, :show]
-  resources :relations, only: :create
+  resources :relationships, only: [:create, :destroy]
 end
