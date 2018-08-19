@@ -1,4 +1,7 @@
 <h1>Perfil de <%= @user.email %></h1>
+<%= form_for(current_user.active_relationships.build, remote: true) do |f| %>
+  <%= f.submit "Seguir" %>
+<% end %>
 
 <h2>Tweets (<%= @user.tweets.count %>)</h2>
 <% if @user.tweets.empty? %>
